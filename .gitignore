@@ -1,1 +1,4 @@
 yolov5/
+test_data/
+**/*.pt
+.ipynb_checkpoints
