@@ -1,5 +1,5 @@
 # AutonomousDrone
-Currently in phase one of the project
+Currently in phase two of the project
 
 ## What has been done?
 - Assembly of drone framwork
