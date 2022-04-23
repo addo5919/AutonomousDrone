@@ -35,7 +35,7 @@ autonomous, drone, yolo, flame-detection, deep-learning, computer-vision
 \end{IEEEkeywords}
 
 \section{Introduction}
-As a fire erupts[2], the first few minutes can be critical, and first respondents must race to the scene to analyze the situation and act fast before it gets out of hand. Factors such as road traffic condition and distance may not allow quick rescue operation using traditional means and methods, leading to unmanageable spreading of fire, injuries or even deaths that can be avoided. The issue with combating fire stems from one critical point, time. As a fire ignites, the flames may
+As a fire erupts[1], the first few minutes can be critical, and first respondents must race to the scene to analyze the situation and act fast before it gets out of hand. Factors such as road traffic condition and distance may not allow quick rescue operation using traditional means and methods, leading to unmanageable spreading of fire, injuries or even deaths that can be avoided. The issue with combating fire stems from one critical point, time. As a fire ignites, the flames may
 spread quickly, and those first few moments can be quite critical. Firefighting tools have always been low-
 tech such as trucks, ladders and hoses which does not always allow for quick extinguish time. Having a
 delayed response can further worsen the situation and sometimes lead to uncontrollable state of affairs.
@@ -52,48 +52,56 @@ are dealt with when a fire erupts. One of the solutions to this problem is to de
 Something about Option A.
 
 \section{Methodology}
-This is where we write methodology
 
-\subsection{Methodology-1}\label{AA}
-This is a subsection of methodology 
 
-\subsection{Methodology-2}
+\subsection{Collecting Data}\label{AA}
 \begin{itemize}
-\item This is an item.
+\item Fire Dataset- (https://www.kaggle.com/datasets/phylake1337/fire-dataset/metadata)
+Authors of the dataset: Ahmed Saied,Ahmed Gamaleldin,Ahmed Atef,Heba Saker and Ahmed Shaheen.
+\item FireNet dataset - (https://github.com/OlafenwaMoses/FireNET) Author of the dataset: Moses Olafenwa.
+\item YOLOV3 Fire Detection dataset- (https://github.com/snehitvaddi/YOLOv3-Cloud-Based-Fire-Detection) Author of the dataset: Snehit Vaddi.
+\item Forest Fire dataset- (https://www.kaggle.com/datasets/kutaykutlu/forest-fire) Author of the dataset: Kutay Kutlu.
+\item Human Detection Dataset- (https://www.kaggle.com/datasets/constantinwerner/human-detection-dataset) Author of the dataset: Constantin Werner
+\item LED light dataset- Web scraping
 \end{itemize}
 
-\subsection{Methodology-3}
-Write equation here:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
 
-\subsection{Methodology-4}
-\paragraph{Subsection inside methodology, but with alphabetical bullets} Something to write about.
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
+\subsection{Preparing the Data}
+Roboflow website (https://roboflow.com/) was used for labelling the dataset. The dataset consists of 3,333 images out of which 1,033 images are negative samples. Negative samples consist of non-flame images: human images,smoke images and led light images. Roboflow's augmentation feature was made use of in order to generate more images for efficient training. Various versions of the dataset was generated in roboflow until the YOLOv5 model was accurately able to detect fire. The final version consists of 7991 images.
 
-\begin{figure}[htbp]
-\centerline{
-%includegraphics{}
-}
-\caption{Example of a figure caption.}
-\label{fig}
-\end{figure}
+
+\subsection{Choosing a Model}
+YOLOv5 model was chosen for flame detection because of the following reasons:-
+\begin{itemize}
+\item It is about 88 per cent smaller than YOLOv4.
+\item It is about 180 per cent faster than YOLOv4.
+\item It is roughly as accurate as YOLOv4 on the same task.
+\end{itemize}
+
+
+\subsection{Training the Model}
+ In order to train the YOLOv5 model (available here-https://github.com/ultralytics/yolov5) the following steps are performed:-
+ \begin{itemize}
+ \item The github repository is cloned, all dependencies within requirements.txt are installed.
+ \item YOLOv5n,YOLOv5s,YOLOv5m,YOLOv5l and YOLOv5x are the different pretrained models that YOLOv5 offers. YOLOv5s was chosen by us as it is the smallest and fastest model available.
+ \item The final version of the dataset is extracted from Roboflow via code that it provides. The YOLOv5s model is trained on the Roboflow dataset by specifying dataset,batch-size,image size and pretrained weight(yolov5s.pt). Pretrained weights are auto-downloaded from the latest YOLOv5 release.
+ \item The training results are saved to runs/train/ with incrementing run directories, i.e. runs/train/exp2, runs/train/exp3 etc.
+\end{itemize} 
+
+
+\subsection{Evaluating the Model}
+\begin{itemize}
+\item sample
+\end{itemize}
+
+\subsection{Parameter Tuning}
+ We did not do any parameter tuning as it was not applicable for our case.
+ 
+ \subsection{Making Predictions}
+  After the YOLOv5 model has been trained with the Roboflow dataset, it can be used for fire detection. If an image containing a flame is given as input to the trained model then it will generate bounding boxes on the regions of the image where flames are detected.
+ 
+ 
+
 
 \section*{Result}
 
@@ -109,7 +117,6 @@ This is our conclusion
 
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} Hajer Ben Mnaouer, Mohammad Faieq, Adel Yousefi, Sarra Ben Mnaouer, ``FireFly: Autonomous Rescue Drones`` Canadian University Dubai, First Interchange Sheikh Zaid Road, Dubai, United Arab Emirates
+\bibitem{b1} Hajer Ben Mnaouer, Mohammad Faieq, Adel Yousefi, Sarra Ben Mnaouer, ``FireFly: Autonomous Rescue Drones`` Canadian University Dubai, First Interchange Sheikh Zaid Road, Dubai, United Arab Emirates.
 \end{thebibliography}
 \end{document}
