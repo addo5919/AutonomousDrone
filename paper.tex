@@ -13,12 +13,7 @@
 \title{Autonomous Firefighting Drone}
 
 \author{
-\IEEEauthorblockN{
-Ashvith Shetty,
-Aditya Rao Chokkadi,
-Atul Singh Parmar and
-Adithya Shet
-}
+\IEEEauthorblockN{Ashvith Shetty, Aditya Rao Chokkadi, Atul Singh Parmar and Adithya Shet}
 \IEEEauthorblockA{Department of Computer Science Engineering\\
 NMAM Institute of Technology, Udupi, Karnataka}
 }
@@ -26,15 +21,18 @@ NMAM Institute of Technology, Udupi, Karnataka}
 \maketitle
 
 \begin{abstract}
-This work showcases an autonomous drone that can take part in rescue missions. The scope of the project is limited to fire detection and extinguishment. We have used a custom-data trained YOLOv5s for flame detection. YOLOv5 is a family of object detection models developed by Ultralytics.
+In the recent years, there has been a steady growth of unmanned aerial vehicle (UAV) technologies, especially in sectors like defense, logistics, film-making and exploration.
+We propose an autonomous drone that can take part in rescue missions, where timely action can save lives. The scope of the project is limited to fire detection and extinguishment. We have used a custom-data trained flame detection deep learning model that can be used in a low-powered IoT (internet of things) single-board computer attached to the drone's flight controller.
 \end{abstract}
 
 \begin{IEEEkeywords}
-autonomous, drone, yolov5, flame-detection, deep-learning, computer-vision, real-time, cnn, video-fire-detection
+autonomous, drone, yolov5, flame-detection, deep-learning, computer-vision, video-fire-detection, internet-of-things, rescue-missions
 \end{IEEEkeywords}
 
 \section{Introduction}
-This is our introduction
+Fire is one of the many hazards that is recognised as one of the many leading causes of death, and can damage economy as well as the environment\cite{b1, b2, b3, b4}. There is a need to respond quickly in order to contain the fire, or else the situation may go out of hand. Factors like poor road conditions, traffic, and distance may disrupt the rescue operation that uses traditional methods. There are other factors like location of the source of fire hazard, as well as the lack of information of that area.
+
+Firefighting tools have evolved over time \cite{b5}, but not to the level that is on par with other sectors. These tools still require the need for human intervention, which might be a problem, as such tools may require a skilled operator, who cannot replace a fire fighter, and remote options might not be the best option in areas with communication interference, and poor tower signal. Artificial Intelligence may be introducted to one such tool - an unmanned aerial vehicle that can carry and shoot water. The drones will be equipped with fire detection capabilities and will be able to extinguish the fires via a attached extinguisher module.  The integration of firefighting drones with deep learning will allow for ease of access and control of fire outbreaks. Drones will also result in increased response time, prevention of further damage, and allow relaying of vital information to out of reach places regarding the characteristics of the fire scene.
 
 \section{Literature Review}
 %Although there were several controversy around the YOLOv5 model underperforming the YOLOv4 model, the sheer amount of well-written blogs and documentation was what made us go with YOLOv5.
@@ -98,13 +96,25 @@ This is our conclusion
 
 
 \begin{thebibliography}{00}
-\bibitem{b1} Ahmed Saied, Ahmed Gamaleldin, Ahmed Atef, Heba Saker and Ahmed Shaheen (2018), ``FIRE dataset, Version 1''. Retrieved March 02, 2022 from https://www.kaggle.com/datasets/phylake1337/fire-dataset.
+\bibitem{b1} Jun Zhuang, Vineet M. Payyappalli, Adam Behrendt,
+and Kathryn Lukasiewicz, ``Total Cost of Fire in the United States'', Department of Industrial and Systems Engineering, University at Buffalo, Buffalo, NY, USA, October 2017.
 
-\bibitem{b2} Moses Olafenwa (2019), ``FireNet dataset, Version 1". Retrieved April 05, 2022 from https://github.com/OlafenwaMoses/FireNET.
+\bibitem{b2} Mário Jorge Cardoso de Mendonça, Maria del Carmen Vera Diaz,
+Daniel Nepstad, Ronaldo Seroa da Motta, Ane Alencar, João Carlos Gomes, Ramon Arigoni Ortiz, ``The economic cost of the use of fire in the Amazon''.
 
-\bibitem{b3} Snehit Vaddi (2021), ``YOLOv3 Fire Detection dataset, Version 1''. Retrieved April 05, 2022 from https://github.com/snehitvaddi/YOLOv3-Cloud-Based-Fire-Detection.
+\bibitem{b3} Amanda Hansson and Paul Dargusch, ``An Estimate of the Financial Cost of Peatland Restoration in Indonesia'', School of Earth and Environmental Science, University of Queensland, Queensland, Australia.
 
-\bibitem{b4} Kutay Kutlu (2021), ``Forest Fire, Version 1''. Retrieved April 07, 2022 from https://www.kaggle.com/datasets/kutaykutlu/forest-fire.
+\bibitem{b4} B.S.W. Ashe, K.J. McAneney, and A.J. Pitman, ``The Total Cost of Fire in Australia'', Proceedings of the Third International Symposium on Fire Economics, Planning, and Policy: Common Problems and Approaches, November 2009.
+
+\bibitem{b5} Hajer Ben Mnaouer, Mohammad Faieq, Adel Yousefi and Sarra Ben Mnaouer, ``FireFly: Autonomous Rescue Drones'', Canadian University Dubai, First Interchange Sheikh Zaid Road, Dubai, United Arab Emirates.
+
+%\bibitem{b} Ahmed Saied, Ahmed Gamaleldin, Ahmed Atef, Heba Saker and Ahmed Shaheen (2018), ``FIRE dataset, Version 1''. Retrieved March 02, 2022 from https://www.kaggle.com/datasets/phylake1337/fire-dataset.
+
+%\bibitem{b} Moses Olafenwa (2019), ``FireNet dataset, Version 1". Retrieved April 05, 2022 from https://github.com/OlafenwaMoses/FireNET.
+
+%\bibitem{b} Snehit Vaddi (2021), ``YOLOv3 Fire Detection dataset, Version 1''. Retrieved April 05, 2022 from https://github.com/snehitvaddi/YOLOv3-Cloud-Based-Fire-Detection.
+
+%\bibitem{b} Kutay Kutlu (2021), ``Forest Fire, Version 1''. Retrieved April 07, 2022 from https://www.kaggle.com/datasets/kutaykutlu/forest-fire.
 
 %\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
 \end{thebibliography}
